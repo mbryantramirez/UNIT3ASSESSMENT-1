@@ -33,10 +33,18 @@ public class RecyclerActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<PlanetResponse> call, Response<PlanetResponse> response) {
                 Log.d(TAG,"OnResponse"+ response.body().getPlanets());
+                /**
+                 *  this is where you would have passed .getPlanets() into an adapter
+                 */
             }
 
             @Override
             public void onFailure(Call<PlanetResponse> call, Throwable t) {
+                /**
+                 * You need to Log.e t.message instead of t.printStackTrace();
+                 *
+                 * this would have helped you catch your current error that the json response is currently null
+                 */
                 t.printStackTrace();
             }
         });
